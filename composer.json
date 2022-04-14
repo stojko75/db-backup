@@ -1,0 +1,17 @@
+{
+    "name": "stojko/dbservice",
+    "description": "Database backup package",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Aleksandar Stojilkovic",
+            "email": "aleksandar.stojilkovic@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Stojko\\DbService\\": "./"
+        }
+    }
+}
