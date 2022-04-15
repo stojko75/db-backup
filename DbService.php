@@ -24,7 +24,7 @@ class DbService
 		$this->serviceConfig->hostname  = $dbConfig['hostname'];
 		$this->serviceConfig->backupDir = $dbConfig['backupDir'];
 		$this->serviceConfig->days      = $dbConfig['days'] ?? 14;
-		$this->serviceConfig->bzip2     = isset($dbConfig['bzip2']);
+		$this->serviceConfig->bzip2     = $dbConfig['bzip2'];
 		$this->backupFile = new BackupFileDto();
 	}
 
