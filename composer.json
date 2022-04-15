@@ -8,9 +8,6 @@
             "email": "aleksandar.stojilkovic@gmail.com"
         }
     ],
-    "require": {
-        "ext-bz2": "*"
-    },
     "autoload": {
         "psr-4": {
             "Stojko\\DbService\\": "./"
