@@ -50,7 +50,7 @@ class DbService
 	{
 		$this->backupFile->name = $this->serviceConfig->database.'_backup_'.(new DateTime())->format('Ymd_his').'.sql';
 		$this->backupFile->fullPath = $this->serviceConfig->backupDir . $this->backupFile->name;
-		exec("mysqldump -u{$this->serviceConfig->username} -p{$this->serviceConfig->password} -h{$this->serviceConfig->hostname} {$this->serviceConfig->database} > {$this->backupFile->fullPath}", $output);
+		exec("mysqldump -u{$this->serviceConfig->username} -p{$this->serviceConfig->password} -h{$this->serviceConfig->hostname} --no-tablespaces {$this->serviceConfig->database} > {$this->backupFile->fullPath}", $output);
 	}
 
 	private function bzip2(): void
