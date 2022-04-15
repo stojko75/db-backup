@@ -17,7 +17,7 @@ Intended to be used as a service.
         'database'  => 'test_database',
         'backupDir' => getcwd().'/backup/', // Full path of backup directory. Will be created, if it doesn't exist
         'days'      => 14,                  // How many days we want to keep backups. Default is 14.
-        'bzip2'     => true,                // Compress backup with bzip2 compression. Default is false.
+        'bzip2'     => true,                // Compress backup with bzip2 compression. Default is false. Php ext bzip2 required.
     ];
 
     $dbService = new DbService($dbConfig);
