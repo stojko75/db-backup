@@ -48,9 +48,13 @@ class DbService
 
 	private function backup(): void
 	{
-		$this->backupFile->name = $this->serviceConfig->database.'_backup_'.(new DateTime())->format('Ymd_his').'.sql';
+		$this->backupFile->name = $this->serviceConfig->database . '_backup_' . (new DateTime())->format('Ymd_his') . '.sql';
 		$this->backupFile->fullPath = $this->serviceConfig->backupDir . $this->backupFile->name;
-		exec("mysqldump -u{$this->serviceConfig->username} -p{$this->serviceConfig->password} -h{$this->serviceConfig->hostname} --no-tablespaces {$this->serviceConfig->database} > {$this->backupFile->fullPath}", $output);
+		try {
+			exec("mysqldump -u{$this->serviceConfig->username} -p{$this->serviceConfig->password} -h{$this->serviceConfig->hostname} {$this->serviceConfig->database} > {$this->backupFile->fullPath}", $output);
+		} catch (Exception $e) {
+			die("Error during mysqldump execution. Do you have mysqldump installed? Is php'f exec() function enabled?");
+		}
 	}
 
 	private function bzip2(): void
